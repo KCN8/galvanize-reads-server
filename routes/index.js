@@ -4,14 +4,14 @@ const knex = require('../db/connection')
 const bodyParser = require('body-parser')
 
 /* GET all authors. */
-router.get('/', (req, res) => {
+router.get('/authors', (req, res) => {
   knex('author')
   .then((authors) => {
     res.send(authors)
   })
 })
 
-router.get('/:id', (req, res) => {
+router.get('/authors/:id', (req, res) => {
   let id = req.params.id
   knex('author')
   .where('id', id)
