@@ -18,7 +18,6 @@ router.get('/authors/:id', (req, res) => {
   .then((author) => {
     res.json(author)
   })
-
 })
 
 router.get('/books', (req, res) => {
@@ -36,4 +35,5 @@ router.get('/books/:id', (req, res) => {
     res.send(book)
   })
 })
+
 module.exports = router;

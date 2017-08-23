@@ -1,0 +1,58 @@
+body {
+  width: 100%;
+  height: auto;
+  background: rgb(206, 214, 219);
+}
+
+.top {
+  margin-left: 5rem;
+  margin-right: auto;
+  margin-top: 5rem;
+  height: 2rem;
+  width: 50rem;
+  background-color: red;
+}
+
+.left {
+  margin-left: 5rem;
+  margin-right: auto;
+  margin-bottom: -20rem;
+  height: 20rem;
+  width: 2rem;
+  background-color: red;
+}
+
+.right {
+  margin-left: 53rem;
+  margin-right: auto;
+  margin-top: -5rem;
+  margin-bottom: -20rem;
+  height: 20rem;
+  width: 2rem;
+  background-color: red;
+}
+
+.bottomLeft {
+  margin-left: 5rem;
+  margin-top: 18rem;
+  height: 2rem;
+  width: 15rem;
+  background-color: red;
+}
+
+.bottomRight   {
+  margin-left: 28rem;
+  margin-right: auto;
+  margin-top: -2rem;
+  height: 2rem;
+  width: 25rem;
+  background-color: red;
+}
+
+.bottomMiddle   {
+  margin-left: 18rem;
+  margin-right: auto;
+  height: 2rem;
+  width: 12rem;
+  background-color: red;
+}
