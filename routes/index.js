@@ -2,35 +2,37 @@ const express = require('express')
 const router = express.Router()
 const knex = require('../db/connection')
 const bodyParser = require('body-parser')
+const queries = require('../db/queries')
 
+router.get('/', (req, res) => {
+  //Need join table
+})
 /* GET all authors. */
 router.get('/authors', (req, res) => {
-  knex('author')
+  queries.getAllAuthors()
   .then((authors) => {
     res.send(authors)
   })
 })
-
+/* GET author by ID. */
 router.get('/authors/:id', (req, res) => {
   let id = req.params.id
-  knex('author')
-  .where('id', id)
+  queries.getAuthorByID(id)
   .then((author) => {
     res.json(author)
   })
 })
-
+/* GET all books. */
 router.get('/books', (req, res) => {
-  knex('book')
+  queries.getAllBooks()
   .then((books) => {
     res.send(books)
   })
 })
-
+/* GET book by ID. */
 router.get('/books/:id', (req, res) => {
   let id = req.params.id
-  knex('book')
-  .where('id', id)
+  queries.getBookByID(id)
   .then((book) => {
     res.send(book)
   })
