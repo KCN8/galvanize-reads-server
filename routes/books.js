@@ -5,7 +5,7 @@ const bodyParser = require('body-parser')
 const queries = require('../db/queries')
 
 /* GET all books. */
-router.get('/books', (req, res) => {
+router.get('/', (req, res, next) => {
   queries.getAllBooks()
   .then((books) => {
     res.json(books)
@@ -13,12 +13,16 @@ router.get('/books', (req, res) => {
   .catch(error => res.json({ error }) )
 })
 /* GET book by ID. */
-router.get('/books/:id', (req, res) => {
+router.get('/:id', (req, res, next) => {
   let id = req.params.id
   queries.getBookByID(id)
   .then((book) => {
-
-    res.json(book[0])
+    book = book[0]
+    queries.getAuthorsByBookID(book.id)
+    .then(authors => {
+      book.authors = authors
+      res.json(book)
+    })
   })
   .catch(error => res.json({ error }) )
 })
