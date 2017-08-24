@@ -11,8 +11,9 @@ router.get('/', (req, res) => {
 router.get('/authors', (req, res) => {
   queries.getAllAuthors()
   .then((authors) => {
-    res.send(authors)
+    res.json(authors)
   })
+  .catch(error => res.json({ error }) )
 })
 /* GET author by ID. */
 router.get('/authors/:id', (req, res) => {
@@ -21,21 +22,25 @@ router.get('/authors/:id', (req, res) => {
   .then((author) => {
     res.json(author)
   })
+  .catch(error => res.json({ error }) )
 })
 /* GET all books. */
 router.get('/books', (req, res) => {
   queries.getAllBooks()
   .then((books) => {
-    res.send(books)
+    res.json(books)
   })
+  .catch(error => res.json({ error }) )
 })
 /* GET book by ID. */
 router.get('/books/:id', (req, res) => {
   let id = req.params.id
   queries.getBookByID(id)
   .then((book) => {
-    res.send(book)
+
+    res.json(book[0])
   })
+  .catch(error => res.json({ error }) )
 })
 
 module.exports = router;
