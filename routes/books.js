@@ -8,6 +8,15 @@ const queries = require('../db/queries')
 router.get('/', (req, res, next) => {
   queries.getAllBooks()
   .then((books) => {
+    return Promise.all(books.map(book => {
+      return queries.getAuthorsByBookID(book.id)
+      .then(authors => {
+        book.authors = authors
+        return book
+      })
+    }))
+  })
+  .then(books => {
     res.json(books)
   })
   .catch(error => res.json({ error }) )
