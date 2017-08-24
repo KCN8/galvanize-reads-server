@@ -9,6 +9,14 @@ function getAuthorByID(id) {
   .where('id', id)
 }
 
+function getBooksByAuthorID(author_id) {
+  return knex('author')
+  .select('book.*')
+  .join('author_book', 'author.id', 'author_book.author_id')
+  .join('book', 'book.id', 'author_book.book_id')
+  .where('author.id', author_id)
+}
+
 function getAllBooks() {
   return knex('book')
 }
@@ -30,5 +38,6 @@ module.exports = {
   getAuthorByID,
   getAllBooks,
   getBookByID,
-  getAuthorsByBookID
+  getAuthorsByBookID,
+  getBooksByAuthorID
 }
