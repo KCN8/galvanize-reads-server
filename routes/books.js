@@ -35,5 +35,9 @@ router.get('/:id', (req, res, next) => {
   })
   .catch(error => res.json({ error }) )
 })
+/* POST a new book. */
+router.post('/', (req, res, next) => {
+    res.send('hi')
+})
 
 module.exports = router;
